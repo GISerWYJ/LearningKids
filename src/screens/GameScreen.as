@@ -32,7 +32,7 @@ package screens
 
         private function createUI():void
         {
-           // this.backgroundSkin = new ImageSkin(EmbeddedAssets.HOME_BG);
+
 
             var lb:Button = new Button();
             lb.label = "Hello WYJ";
