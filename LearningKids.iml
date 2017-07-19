@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="LearningKids">
+    <configurations>
+      <configuration name="LearningKids" target-platform="Mobile" pure-as="true" main-class="LearningKids" output-file="LearningKids.swf" output-folder="$MODULE_DIR$/out/production/LearningKids">
+        <dependencies target-player="22.0">
+          <entries>
+            <entry library-id="cc125479-b89c-4869-b1d3-4f951260358b">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="3c2761f6-10cd-47af-a74d-4069701b2e38">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK_Compiler" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/MainApp-app.xml" package-file-name="Main">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="assets" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-375w-667h@2x.png" path-in-package="Default-375w-667h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-414w-736h-Landscape@3x.png" path-in-package="Default-414w-736h-Landscape@3x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-414w-736h@3x.png" path-in-package="Default-414w-736h@3x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Landscape.png" path-in-package="Default-Landscape.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Landscape@2x.png" path-in-package="Default-Landscape@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Portrait.png" path-in-package="Default-Portrait.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Portrait@2x.png" path-in-package="Default-Portrait@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default.png" path-in-package="Default.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default@2x.png" path-in-package="Default@2x.png" />
+          </files-to-package>
+        </packaging-android>
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/MainApp-app.xml" package-file-name="Main">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-375w-667h@2x.png" path-in-package="Default-375w-667h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-414w-736h-Landscape@3x.png" path-in-package="Default-414w-736h-Landscape@3x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-414w-736h@3x.png" path-in-package="Default-414w-736h@3x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Landscape.png" path-in-package="Default-Landscape.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Landscape@2x.png" path-in-package="Default-Landscape@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Portrait.png" path-in-package="Default-Portrait.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default-Portrait@2x.png" path-in-package="Default-Portrait@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default.png" path-in-package="Default.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default@2x.png" path-in-package="Default@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="assets" />
+          </files-to-package>
+          <AirSigningOptions keystore-path="$MODULE_DIR$/../../ios_p12/ios.p12" provisioning-profile-path="$MODULE_DIR$/../../ios_p12/mobileprovision.mobileprovision" />
+        </packaging-ios>
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="AIRSDK_Compiler" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="cc125479-b89c-4869-b1d3-4f951260358b" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../framework/starling-2.1/starling/src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="3c2761f6-10cd-47af-a74d-4069701b2e38" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../framework/feathers-ui-3.2.0/source" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

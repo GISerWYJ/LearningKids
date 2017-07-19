@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="atlas.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="about_info"	x="641"	y="541"	width="498"	height="349" frameX="-5" frameY="-0" frameWidth="503" frameHeight="349"/>
+	<SubTexture name="baloon"	x="641"	y="0"	width="628"	height="540" frameX="-0" frameY="-0" frameWidth="628" frameHeight="540"/>
+	<SubTexture name="clouds"	x="1140"	y="541"	width="498"	height="279" frameX="-0" frameY="-0" frameWidth="498" frameHeight="279"/>
+	<SubTexture name="cute_button_down"	x="1270"	y="101"	width="325"	height="100" frameX="-0" frameY="-0" frameWidth="325" frameHeight="100"/>
+	<SubTexture name="cute_button_normal"	x="1270"	y="0"	width="325"	height="100" frameX="-0" frameY="-0" frameWidth="325" frameHeight="100"/>
+	<SubTexture name="home_bg"	x="0"	y="0"	width="640"	height="960" frameX="-0" frameY="-0" frameWidth="640" frameHeight="960"/>
+	<SubTexture name="logo"	x="641"	y="891"	width="348"	height="119" frameX="-2" frameY="-3" frameWidth="353" frameHeight="138"/>
+	<SubTexture name="music_off"	x="39"	y="961"	width="37"	height="38" frameX="-1" frameY="-2" frameWidth="39" frameHeight="40"/>
+	<SubTexture name="music_on"	x="77"	y="961"	width="36"	height="38" frameX="-0" frameY="-0" frameWidth="37" frameHeight="39"/>
+	<SubTexture name="sounds_off"	x="0"	y="961"	width="38"	height="27" frameX="-1" frameY="-1" frameWidth="39" frameHeight="29"/>
+	<SubTexture name="sounds_on"	x="0"	y="989"	width="37"	height="27" frameX="-0" frameY="-2" frameWidth="38" frameHeight="30"/>
+	<SubTexture name="start_game_normal"	x="1140"	y="821"	width="358"	height="143" frameX="-6" frameY="-6" frameWidth="372" frameHeight="153"/>
+</TextureAtlas>
