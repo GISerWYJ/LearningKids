@@ -35,7 +35,7 @@ package screens
            // this.backgroundSkin = new ImageSkin(EmbeddedAssets.HOME_BG);
 
             var lb:Button = new Button();
-            lb.label = "Hello Game";
+            lb.label = "Hello WYJ";
             lb.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
             addChild(lb);
             lb.addEventListener(Event.TRIGGERED, lb_triggeredHandler);
