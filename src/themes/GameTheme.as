@@ -69,7 +69,8 @@ package themes
             {
                 return;
             }
-           
+
+
             this.initilize();
             this.dispatchEventWith(Event.COMPLETE);
         }
@@ -102,10 +103,11 @@ package themes
             var appDir:File = File.applicationDirectory;
 
             //enqueue the sound
-            assets.enqueue(appDir.resolvePath("assets/sounds"));
+            //assets.enqueue(appDir.resolvePath("assets/sounds"));
             //enqueue the atlas
             assets.enqueue(appDir.resolvePath("assets/textures/2x/atlas.png"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/atlas.xml"));
+           
             //enqueue the font
             assets.enqueue(appDir.resolvePath("assets/fonts/font.png"));
             assets.enqueue(appDir.resolvePath("assets/fonts/font.fnt"));
@@ -133,7 +135,7 @@ package themes
 
             //ToggleButton
             this.getStyleProviderForClass(Button).setFunctionForStyleName("music_button_style", this.setMusicButtonStyle);
-
+            
         }
 
         private function setGameButtonStyle(button:Button):void

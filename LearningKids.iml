@@ -62,7 +62,7 @@
       <library type="flex">
         <properties id="cc125479-b89c-4869-b1d3-4f951260358b" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../framework/starling-2.1/starling/src" />
+          <root url="file://$MODULE_DIR$/../../framework/starling-2.2/starling/src" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -72,7 +72,7 @@
       <library type="flex">
         <properties id="3c2761f6-10cd-47af-a74d-4069701b2e38" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../framework/feathers-ui-3.2.0/source" />
+          <root url="file://$MODULE_DIR$/../../framework/feathers-ui-3.3.0/source" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

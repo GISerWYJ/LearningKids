@@ -149,10 +149,10 @@ package
         {
             this._starling.stop(true);
 
-            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
-            {
-                Assets.bgSound.stop();
-            }
+//            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
+//            {
+//                Assets.bgSound.stop();
+//            }
             this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
         }
 
@@ -160,10 +160,10 @@ package
         {
             this.stage.removeEventListener(Event.ACTIVATE, stage_activateHandler);
             this._starling.start();
-            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
-            {
-                Assets.bgSound = Assets.assetManager.playSound("bg");
-            }
+//            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
+//            {
+//                Assets.bgSound = Assets.assetManager.playSound("bg");
+//            }
         }
     }
 }
