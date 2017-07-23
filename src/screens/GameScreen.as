@@ -7,8 +7,8 @@
 package screens
 {
     import feathers.controls.Button;
-    import feathers.controls.Label;
     import feathers.controls.List;
+    import feathers.controls.ProgressBar;
     import feathers.controls.Screen;
     import feathers.controls.ScrollBarDisplayMode;
     import feathers.controls.renderers.DefaultListItemRenderer;
@@ -25,14 +25,12 @@ package screens
     import starling.events.Event;
     import starling.utils.AssetManager;
 
-    import themes.GameTheme;
-
     public class GameScreen extends Screen
     {
 
         private var imgList:List;
 
-        private var title:Label;
+        private var loadingBar:ProgressBar;
 
         private var currentPageNum:Number = 0;
 
@@ -49,9 +47,19 @@ package screens
 
             this.layout = new AnchorLayout();
 
+            this.loadingBar = new ProgressBar();
+            this.loadingBar.minimum = 0;
+            this.loadingBar.maximum = 1;
+            this.loadingBar.value = 0;
+            this.loadingBar.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
+
+            addChild(loadingBar);
+
             gameAssetManager = new AssetManager(2);
             var appDir:File = File.applicationDirectory;
 
+
+            
 
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/animals.png"));
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/animals.xml"));
@@ -74,9 +82,11 @@ package screens
         {
             if (ratio < 1)
             {
+                trace("ration:"+ratio);
+                this.loadingBar.value = ratio;
                 return;
             }
-
+            removeChild(loadingBar, true);
             createUI();
         }
 
@@ -163,7 +173,7 @@ package screens
                     ]);
 
 
-            addChild(imgList);
+              addChild(imgList);
 
             //left button
             var leftButton:Button = new Button();
@@ -193,6 +203,7 @@ package screens
         private function lb_triggeredHandler(event:Event):void
         {
             dispatchEventWith("backHome");
+
         }
 
         private function leftButton_triggeredHandler(event:Event):void

@@ -2059,6 +2059,7 @@ package feathers.themes
 
 			var fillSkin:Image = new Image(this.buttonUpSkinTexture);
 			fillSkin.scale9Grid = BUTTON_SCALE9_GRID;
+
 			fillSkin.width = this.smallControlSize;
 			fillSkin.height = this.smallControlSize;
 			progress.fillSkin = fillSkin;

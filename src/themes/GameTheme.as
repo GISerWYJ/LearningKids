@@ -8,6 +8,7 @@ package themes
 {
     import feathers.controls.Button;
     import feathers.controls.ButtonState;
+    import feathers.controls.ProgressBar;
     import feathers.controls.ToggleButton;
     import feathers.controls.text.BitmapFontTextRenderer;
     import feathers.core.FeathersControl;
@@ -107,10 +108,12 @@ package themes
             //enqueue the atlas
             assets.enqueue(appDir.resolvePath("assets/textures/2x/atlas.png"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/atlas.xml"));
-           
+
             //enqueue the font
             assets.enqueue(appDir.resolvePath("assets/fonts/font.png"));
             assets.enqueue(appDir.resolvePath("assets/fonts/font.fnt"));
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/progress_bg.png"));
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/progress_fill.png"));
             //monitor the loading process
             assets.loadQueue(assetManager_onProgress);
         }
@@ -135,6 +138,9 @@ package themes
 
             //ToggleButton
             this.getStyleProviderForClass(Button).setFunctionForStyleName("music_button_style", this.setMusicButtonStyle);
+
+            //Progressbar
+            this.getStyleProviderForClass(ProgressBar).defaultStyleFunction = this.setProgressbarStyle;
             
         }
 
@@ -145,6 +151,21 @@ package themes
             //skin.scale9Grid = new Rectangle(68, 20, 9, 2);
             skin.scale9Grid= new Rectangle(40,20,83,10);
             button.defaultSkin = skin;
+        }
+
+        private function setProgressbarStyle(progressbar:ProgressBar):void
+        {
+            var backgroundSkin:Image = new Image(assets.getTexture("progress_bg"));
+            backgroundSkin.scale9Grid = new Rectangle(8,0,240,32);
+            progressbar.backgroundSkin = backgroundSkin;
+
+
+            var fillSkin:Image = new Image(assets.getTexture("progress_fill"));
+            fillSkin.scale9Grid = new Rectangle(8,0,184,21);
+            fillSkin.width = 15;
+            progressbar.fillSkin = fillSkin;
+
+            progressbar.padding = 5;
         }
 
         private function setMusicButtonStyle(toggleButton:ToggleButton):void
