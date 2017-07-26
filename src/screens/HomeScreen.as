@@ -122,28 +122,6 @@ package screens
             logo.y = 20;
             logo.alpha = 0;
             addChild(logo);
-            //添加声音控制按钮
-            var soundButtonGroup:LayoutGroup = new LayoutGroup();
-            var soundButtonGroupLayout:HorizontalLayout = new HorizontalLayout();
-            soundButtonGroupLayout.gap = 10;
-            soundButtonGroup.layout = soundButtonGroupLayout;
-            soundButtonGroup.layoutData = new AnchorLayoutData(5, 5);
-            var musicButton:ToggleButton = new ToggleButton();
-            musicButton.styleNameList.add("music_button_style");
-           // musicButton.addEventListener(Event.CHANGE, musicButton_changeHandler);
-
-            var soundButton:ToggleButton = new ToggleButton();
-            var soundButtonSkin:ImageSkin = new ImageSkin(GameTheme.assets.getTexture("sounds_on"));
-            soundButtonSkin.setTextureForState(ButtonState.DOWN, GameTheme.assets.getTexture("sounds_off"));
-            soundButtonSkin.selectedTexture = GameTheme.assets.getTexture("sounds_off");
-            soundButton.defaultSkin = soundButtonSkin;
-            soundButton.defaultSelectedSkin = soundButtonSkin;
-            //soundButton.addEventListener(Event.TRIGGERED, soundButton_triggeredHandler);
-
-            soundButtonGroup.addChild(musicButton);
-            soundButtonGroup.addChild(soundButton);
-
-            addChild(soundButtonGroup);
 
             //添加按钮组
             var buttonGroup:LayoutGroup = new LayoutGroup();
@@ -154,15 +132,31 @@ package screens
             addChild(buttonGroup);
             //开始按钮
             var startButton:Button = new Button();
-            startButton.label = "开始";
+            startButton.styleNameList.add(GameTheme.START_GAME_BUTTON_STYLE);
             startButton.addEventListener(Event.TRIGGERED, startButton_triggeredHandler);
             buttonGroup.addChild(startButton);
 
-            //关于按钮
-            var aboutButton:Button = new Button();
-            aboutButton.label = "关于";
-            aboutButton.addEventListener(Event.TRIGGERED, aboutButton_triggeredHandler);
-            buttonGroup.addChild(aboutButton);
+            //设置按钮
+            var settingButton:Button = new Button();
+            settingButton.styleNameList.add(GameTheme.SETTING_BUTTON_STYLE);
+            settingButton.addEventListener(Event.TRIGGERED, aboutButton_triggeredHandler);
+            buttonGroup.addChild(settingButton);
+
+            //底部按钮组
+            var bottomButtonGroup:LayoutGroup = new LayoutGroup();
+            var hLayout:HorizontalLayout = new HorizontalLayout();
+            hLayout.gap = 10;
+            bottomButtonGroup.layout = hLayout;
+            bottomButtonGroup.layoutData = new AnchorLayoutData(NaN, NaN, 5, NaN, 0, NaN);
+            addChild(bottomButtonGroup);
+
+            var rateButton:Button = new Button();
+            rateButton.styleNameList.add(GameTheme.RATE_BUTTON_STYLE);
+            bottomButtonGroup.addChild(rateButton);
+
+            var shareButton:Button=new Button();
+            shareButton.styleNameList.add(GameTheme.SHARE_BUTTON_STYLE);
+            bottomButtonGroup.addChild(shareButton);
 
         }
 
@@ -176,7 +170,7 @@ package screens
         {
             GameTheme.assets.playSound("start_game");
             //Assets.bgSound.stop();
-            dispatchEventWith("game");
+            dispatchEventWith("start");
         }
 
         private function aboutButton_triggeredHandler(event:Event):void

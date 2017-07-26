@@ -6,6 +6,8 @@
  **/
 package screens
 {
+    import data.GameData;
+
     import feathers.controls.Button;
     import feathers.controls.List;
     import feathers.controls.ProgressBar;
@@ -13,7 +15,7 @@ package screens
     import feathers.controls.ScrollBarDisplayMode;
     import feathers.controls.renderers.DefaultListItemRenderer;
     import feathers.controls.renderers.IListItemRenderer;
-    import feathers.data.ListCollection;
+    import feathers.data.ArrayCollection;
     import feathers.layout.AnchorLayout;
     import feathers.layout.AnchorLayoutData;
     import feathers.layout.HorizontalAlign;
@@ -23,10 +25,13 @@ package screens
     import flash.filesystem.File;
 
     import starling.events.Event;
+    import starling.textures.Texture;
     import starling.utils.AssetManager;
 
     public class GameScreen extends Screen
     {
+        //主界面类别列表
+        public var gameData:GameData;
 
         private var imgList:List;
 
@@ -34,6 +39,7 @@ package screens
 
         private var currentPageNum:Number = 0;
 
+        //负责加载游戏中各类资源
         private var gameAssetManager:AssetManager;
 
         public function GameScreen()
@@ -59,11 +65,13 @@ package screens
             var appDir:File = File.applicationDirectory;
 
 
-            
-
-            gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/animals.png"));
-            gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/animals.xml"));
-
+            //load the assets according to the gameCategory passed in
+            //1.enqueue the pictures.
+            gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/" + gameData.gameCatergory + ".png"));
+            gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/" + gameData.gameCatergory + ".xml"));
+            //2.enqueue the sound effects.
+            gameAssetManager.enqueue(appDir.resolvePath("assets/sounds/" + gameData.gameCatergory));
+            //2.load the queue.
             gameAssetManager.loadQueue(assetManager_onProgress);
 
 
@@ -82,10 +90,11 @@ package screens
         {
             if (ratio < 1)
             {
-                trace("ration:"+ratio);
+                trace("ration:" + ratio);
                 this.loadingBar.value = ratio;
                 return;
             }
+
             removeChild(loadingBar, true);
             createUI();
         }
@@ -106,6 +115,26 @@ package screens
             return itemRenderer;
         }
 
+        /**
+         * 根据加载的图片资源构建图片列表的数据源
+         * @return 新的数据源
+         */
+        private function createDataforList():ArrayCollection
+        {
+            var listData:ArrayCollection = new ArrayCollection();
+            var textures:Vector.<Texture> = gameAssetManager.getTextures();
+            var textureNames:Vector.<String> = gameAssetManager.getTextureNames();
+            for (var i:int = 0; i < textureNames.length; i++)
+            {
+                listData.addItem({
+                    label: textureNames[i],
+                    texture: textures[i]
+                });
+            }
+
+            return listData;
+        }
+
         private function createUI():void
         {
             imgList = new List();
@@ -114,72 +143,21 @@ package screens
             imgList.scrollBarDisplayMode = ScrollBarDisplayMode.NONE;
 
 
-            imgList.layout = new SlideShowLayout();
-            imgList.layoutData = new AnchorLayoutData(0, 0, 0, 0);
+            var sliderShowLayout:SlideShowLayout = new SlideShowLayout();
+
+            imgList.layout = sliderShowLayout;
+            imgList.layoutData = new AnchorLayoutData(0,10, 0, 10);
             imgList.addEventListener(Event.SCROLL, imgList_scrollHandler);
 
+            imgList.dataProvider = createDataforList();
 
-            imgList.dataProvider = new ListCollection(
-                    [
-                        {
-                            label: "baloon",
-                            texture: gameAssetManager.getTexture("cat")
-                        },
-                        {
-                            label: "cute_button_down",
-                            texture: gameAssetManager.getTexture("horse")
-                        },
-                        {
-                            label: "cute_button_normal",
-                            texture: gameAssetManager.getTexture("lion")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("giraffe")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("bird")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("butterfly")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("fish")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("monkey")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("dog")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("elephant")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("wolf")
-                        },
-                        {
-                            label: "logo",
-                            texture: gameAssetManager.getTexture("rabbit")
-                        }
-
-                    ]);
-
-
-              addChild(imgList);
+            addChild(imgList);
 
             //left button
             var leftButton:Button = new Button();
             leftButton.label = "<";
             leftButton.width = leftButton.height = 50;
-            leftButton.layoutData = new AnchorLayoutData(NaN, NaN, NaN, 10, NaN, 0);
+            leftButton.layoutData = new AnchorLayoutData(NaN, NaN, 10, 10, NaN, NaN);
             leftButton.addEventListener(Event.TRIGGERED, leftButton_triggeredHandler);
             addChild(leftButton);
 
@@ -187,7 +165,7 @@ package screens
             var rightButton:Button = new Button();
             rightButton.label = ">";
             rightButton.width = rightButton.height = 50;
-            rightButton.layoutData = new AnchorLayoutData(NaN, 10, NaN, NaN, NaN, 0);
+            rightButton.layoutData = new AnchorLayoutData(NaN, 10, 10, NaN, NaN, NaN);
             rightButton.addEventListener(Event.TRIGGERED, rightButton_triggeredHandler);
             addChild(rightButton);
 
@@ -202,7 +180,7 @@ package screens
 
         private function lb_triggeredHandler(event:Event):void
         {
-            dispatchEventWith("backHome");
+            dispatchEventWith(Event.COMPLETE);
 
         }
 
@@ -229,7 +207,9 @@ package screens
 
         private function itemRenderer_triggeredHandler(event:Event):void
         {
-            //title.text = (event.currentTarget as DefaultListItemRenderer).data.label;
+            var touchedItem:Object = imgList.selectedItem;
+            gameAssetManager.playSound(touchedItem.label);
+            
         }
     }
 }

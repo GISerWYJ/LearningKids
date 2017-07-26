@@ -6,14 +6,18 @@
  **/
 package
 {
+    import data.GameData;
+
     import feathers.controls.StackScreenNavigator;
     import feathers.controls.StackScreenNavigatorItem;
+    import feathers.motion.Cover;
     import feathers.motion.Fade;
-    import feathers.motion.Slide;
+    import feathers.motion.Reveal;
 
-    import screens.AboutScreen;
+    import screens.SettingScreen;
     import screens.GameScreen;
     import screens.HomeScreen;
+    import screens.StartScreen;
 
     import starling.events.Event;
 
@@ -23,8 +27,9 @@ package
     {
 
         private static const HOME_SCREEN:String = "homeScreen";
-        private static const ABOUT_SCREEN:String = "about";
-        private static const GAME_SCREEN:String = "game";
+        private static const ABOUT_SCREEN:String = "aboutScreen";
+        private static const GAME_SCREEN:String = "gameScreen";
+        private static const START_SCREEN:String = "startScreen";
 
         private var gameTheme:GameTheme;
 
@@ -45,20 +50,30 @@ package
 
         private function createGameFramework():void
         {
+            //欢迎界面
             var homeScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(HomeScreen);
             homeScreenItem.setScreenIDForPushEvent("about", ABOUT_SCREEN);
             homeScreenItem.setScreenIDForPushEvent("game", GAME_SCREEN);
+            homeScreenItem.setScreenIDForPushEvent("start", START_SCREEN);
             this.addScreen(HOME_SCREEN, homeScreenItem);
-
-            var aboutScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(AboutScreen);
-            aboutScreenItem.addPopEvent("backHome");
-            this.addScreen(ABOUT_SCREEN, aboutScreenItem);
-
-            var gameScreen:StackScreenNavigatorItem = new StackScreenNavigatorItem(GameScreen);
-            gameScreen.addPopEvent("backHome");
-//            gameScreen.pushTransition = Fade.createFadeInTransition();
-//            gameScreen.popTransition = Fade.createFadeOutTransition();
-            this.addScreen(GAME_SCREEN, gameScreen);
+            //关于界面
+            var settingScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SettingScreen);
+            settingScreenItem.addPopEvent(Event.COMPLETE);
+            settingScreenItem.pushTransition =  Cover.createCoverUpTransition();
+            settingScreenItem.popTransition = Reveal.createRevealDownTransition();
+            this.addScreen(ABOUT_SCREEN, settingScreenItem);
+            //开始界面
+            var gameData:GameData = new GameData();
+            var startScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(StartScreen);
+            startScreenItem.setScreenIDForPushEvent("game",GAME_SCREEN);
+            startScreenItem.addPopEvent(Event.COMPLETE);
+            startScreenItem.properties.gameData = gameData;
+            this.addScreen(START_SCREEN, startScreenItem);
+            //游戏界面
+            var gameScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(GameScreen);
+            gameScreenItem.addPopEvent(Event.COMPLETE);
+            gameScreenItem.properties.gameData = gameData;
+            this.addScreen(GAME_SCREEN, gameScreenItem);
 
             this.rootScreenID = HOME_SCREEN;
 
@@ -71,5 +86,7 @@ package
         {
             createGameFramework();
         }
+
+
     }
 }
