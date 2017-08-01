@@ -6,7 +6,7 @@
  **/
 package screens
 {
-    import assets.Assets;
+    import assets.GameSound;
 
     import feathers.controls.Button;
     import feathers.controls.ButtonState;
@@ -37,7 +37,7 @@ package screens
         private var logo:Image;
         private var juggler:Juggler;
         private var clouds:Image;
-        private var label:Label;
+
 
 
         public function HomeScreen()
@@ -53,21 +53,6 @@ package screens
             this.layout = new AnchorLayout();
             //添加主页UI元素
             createUI();
-            //播放背景音乐，先停掉已有的音乐
-//            if (Assets.bgSound)
-//            {
-//                if (!Assets.isBgSoundMute)
-//                {
-//                    Assets.bgSound.stop();
-//                    Assets.bgSound = GameTheme.assets.getSound("bg").play();
-//                }
-//
-//            }
-//            else
-//            {
-//                Assets.bgSound = Assets.assetManager.getSound("bg").play();
-//            }
-
 
             addEventListener(Event.ENTER_FRAME, enterFrameHandler);
             trace("initilized");
@@ -168,23 +153,19 @@ package screens
 
         private function startButton_triggeredHandler(event:Event):void
         {
-            GameTheme.assets.playSound("start_game");
-            //Assets.bgSound.stop();
+            GameSound.playSoundEffect("start_game");
+            //GameSound.stopBgSound();
             dispatchEventWith("start");
         }
 
         private function aboutButton_triggeredHandler(event:Event):void
         {
-           // GameTheme.assets.playSound("start_game");
-            dispatchEventWith("about");
-
+            GameSound.playSoundEffect("start_game");
+            dispatchEventWith("setting");
         }
 
 
-        private function soundButton_triggeredHandler(event:Event):void
-        {
 
-        }
 
         private function musicButton_changeHandler(event:Event):void
         {
@@ -193,14 +174,14 @@ package screens
             trace(musicButton.isSelected);
             if (musicButton.isSelected)
             {
-                stopLocation = Assets.bgSound.position;
-                Assets.bgSound.stop();
-                Assets.isBgSoundMute = true;
+                stopLocation = GameSound.bgSound.position;
+                GameSound.bgSound.stop();
+                //GameSound.isBgSoundMute = true;
             }
             else
             {
-                Assets.bgSound = GameTheme.assets.getSound("bg").play(stopLocation);
-                Assets.isBgSoundMute = false;
+                GameSound.bgSound = GameTheme.assets.getSound("bg").play(stopLocation);
+                //GameSound.isBgSoundMute = false;
             }
         }
     }

@@ -6,7 +6,10 @@
  **/
 package
 {
+    import assets.GameSound;
+
     import data.GameData;
+    import data.GameSettingData;
 
     import feathers.controls.StackScreenNavigator;
     import feathers.controls.StackScreenNavigatorItem;
@@ -27,9 +30,12 @@ package
     {
 
         private static const HOME_SCREEN:String = "homeScreen";
-        private static const ABOUT_SCREEN:String = "aboutScreen";
+        private static const SETTING_SCREEN:String = "aboutScreen";
         private static const GAME_SCREEN:String = "gameScreen";
         private static const START_SCREEN:String = "startScreen";
+
+        public static var settings:GameSettingData = new GameSettingData();
+
 
         private var gameTheme:GameTheme;
 
@@ -42,6 +48,9 @@ package
         {
             super.initialize();
 
+
+
+            
             gameTheme = new GameTheme();
             gameTheme.addEventListener(Event.COMPLETE, gameTheme_completeHandler);
 
@@ -52,20 +61,24 @@ package
         {
             //欢迎界面
             var homeScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(HomeScreen);
-            homeScreenItem.setScreenIDForPushEvent("about", ABOUT_SCREEN);
+            homeScreenItem.setScreenIDForPushEvent("setting", SETTING_SCREEN);
             homeScreenItem.setScreenIDForPushEvent("game", GAME_SCREEN);
             homeScreenItem.setScreenIDForPushEvent("start", START_SCREEN);
             this.addScreen(HOME_SCREEN, homeScreenItem);
-            //关于界面
+            //设置界面
+            //设置数据存储在settings里
+            //var settings:GameSettingData = new GameSettingData();
             var settingScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SettingScreen);
             settingScreenItem.addPopEvent(Event.COMPLETE);
+            settingScreenItem.properties.settingData = settings;
             settingScreenItem.pushTransition =  Cover.createCoverUpTransition();
             settingScreenItem.popTransition = Reveal.createRevealDownTransition();
-            this.addScreen(ABOUT_SCREEN, settingScreenItem);
+            this.addScreen(SETTING_SCREEN, settingScreenItem);
             //开始界面
             var gameData:GameData = new GameData();
             var startScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(StartScreen);
             startScreenItem.setScreenIDForPushEvent("game",GAME_SCREEN);
+            startScreenItem.setScreenIDForPushEvent("setting",SETTING_SCREEN);
             startScreenItem.addPopEvent(Event.COMPLETE);
             startScreenItem.properties.gameData = gameData;
             this.addScreen(START_SCREEN, startScreenItem);
@@ -85,8 +98,10 @@ package
         private function gameTheme_completeHandler(event:Event):void
         {
             createGameFramework();
+            //play the bgSound
+            GameSound.playBgSound();
         }
 
-
+        
     }
 }

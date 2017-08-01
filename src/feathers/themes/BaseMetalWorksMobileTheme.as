@@ -24,7 +24,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 */
 package feathers.themes
 {
-	import assets.Assets;
+	import assets.GameSound;
 
 	import feathers.controls.Alert;
 	import feathers.controls.AutoComplete;
@@ -1192,10 +1192,10 @@ package feathers.themes
 
 		protected function setGameButtonStyles(button:Button):void
 		{
-			var skin:ImageSkin = new ImageSkin(Assets.assetManager.getTexture("cute_button_normal"));
-			skin.setTextureForState(ButtonState.DOWN, Assets.assetManager.getTexture("cute_button_down"));
-			skin.scale9Grid = new Rectangle(68, 20, 9, 2);
-			button.defaultSkin = skin;
+		//	var skin:ImageSkin = new ImageSkin(GameSound.assetManager.getTexture("cute_button_normal"));
+		///	skin.setTextureForState(ButtonState.DOWN, GameSound.assetManager.getTexture("cute_button_down"));
+		//	skin.scale9Grid = new Rectangle(68, 20, 9, 2);
+		//	button.defaultSkin = skin;
 			button.labelFactory = function ():ITextRenderer
 			{
 				var bitmapFontTextRender:BitmapFontTextRenderer = new BitmapFontTextRenderer();

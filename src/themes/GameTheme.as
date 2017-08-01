@@ -8,6 +8,7 @@ package themes
 {
     import feathers.controls.Button;
     import feathers.controls.ButtonState;
+    import feathers.controls.Label;
     import feathers.controls.ProgressBar;
     import feathers.controls.ToggleButton;
     import feathers.controls.text.BitmapFontTextRenderer;
@@ -51,6 +52,12 @@ package themes
         public static var BACK_BUTTON_STYLE = "backButtonStyle";
 
         public static var TOGGLE_BUTTON_STYLE = "toggleButtonStyle";
+
+        public static var HOME_BUTTON_STYLE = "homeButtonStyle";
+
+        public static var INGAME_SETTING_BUTTON_STYLE = "inGameSettingButtonStyle";
+
+        public static var ITEM_NAME_BUTTON = "itemNameButtonStyle";
 
 
 
@@ -128,7 +135,7 @@ package themes
             var appDir:File = File.applicationDirectory;
 
             //enqueue the sound
-            //assets.enqueue(appDir.resolvePath("assets/sounds"));
+            assets.enqueue(appDir.resolvePath("assets/sounds"));
             //enqueue the atlas
             assets.enqueue(appDir.resolvePath("assets/textures/2x/gameui.png"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/gameui.xml"));
@@ -138,6 +145,8 @@ package themes
             assets.enqueue(appDir.resolvePath("assets/fonts/font.fnt"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/progress_bg.png"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/progress_fill.png"));
+
+            assets.enqueue(appDir.resolvePath("assets/images/border.png"));
 
             //assets.enqueue(appDir.resolvePath("assets/images/about_bg.png"));
             //monitor the loading process
@@ -180,11 +189,20 @@ package themes
             //back Button
             this.getStyleProviderForClass(Button).setFunctionForStyleName(BACK_BUTTON_STYLE,setBackButtonStyle);
 
+            //home Button
+            this.getStyleProviderForClass(Button).setFunctionForStyleName(HOME_BUTTON_STYLE,setHomeButtonStyle);
+
+            //InGame SettingButton
+            this.getStyleProviderForClass(Button).setFunctionForStyleName(INGAME_SETTING_BUTTON_STYLE,setInGameSettingButtonStyle);
+
             //PreImage Button
             this.getStyleProviderForClass(Button).setFunctionForStyleName(PRE_IMAGE_BUTTON_STYLE,setPreImageButtonStyle);
 
             //NextImage Button
             this.getStyleProviderForClass(Button).setFunctionForStyleName(NEXT_IMAGE_BUTTON_STYLE,setNextImageButtonStyle);
+
+            //ItemName Button
+            this.getStyleProviderForClass(Button).setFunctionForStyleName(ITEM_NAME_BUTTON,setItemNameButtonStyle);
 
             //ToggleButton
             this.getStyleProviderForClass(ToggleButton).defaultStyleFunction = this.setToggleButtonStyle;
@@ -200,6 +218,8 @@ package themes
             skin.setTextureForState(ButtonState.DOWN, assets.getTexture("cute_button_down"));
             skin.scale9Grid= new Rectangle(40,20,83,10);
             button.defaultSkin = skin;
+
+
 
         }
 
@@ -248,6 +268,19 @@ package themes
             button.defaultSkin = skin;
         }
 
+        private function setHomeButtonStyle(button:Button):void
+        {
+            var skin:ImageSkin = new ImageSkin(assets.getTexture("home_button_normal"));
+            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("home_button_down"));
+            button.defaultSkin = skin;
+        }
+
+        private function setInGameSettingButtonStyle(button:Button):void
+        {
+            var skin:ImageSkin = new ImageSkin(assets.getTexture("game_setting_button_normal"));
+            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("game_setting_button_down"));
+            button.defaultSkin = skin;
+        }
 
         private function setCategoryButtonStyle(button:Button):void
         {
@@ -259,17 +292,23 @@ package themes
 
         private function setPreImageButtonStyle(button:Button):void
         {
-            var skin:ImageSkin = new ImageSkin(assets.getTexture("preimage_button_normal"));
-            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("cute_button_down"));
+            var skin:ImageSkin = new ImageSkin(assets.getTexture("pre_button_normal"));
+            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("pre_button_down"));
             //skin.scale9Grid= new Rectangle(40,20,83,10);
             button.defaultSkin = skin;
         }
 
         private function setNextImageButtonStyle(button:Button):void
         {
-            var skin:ImageSkin = new ImageSkin(assets.getTexture("cute_button_normal"));
-            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("cute_button_down"));
-            skin.scale9Grid= new Rectangle(40,20,83,10);
+            var skin:ImageSkin = new ImageSkin(assets.getTexture("next_button_normal"));
+            skin.setTextureForState(ButtonState.DOWN, assets.getTexture("next_button_down"));
+            //skin.scale9Grid= new Rectangle(40,20,83,10);
+            button.defaultSkin = skin;
+        }
+
+        private function setItemNameButtonStyle(button:Button):void
+        {
+            var skin:ImageSkin = new ImageSkin(assets.getTexture("text_container"));
             button.defaultSkin = skin;
         }
 

@@ -6,6 +6,10 @@
  **/
 package screens
 {
+    import assets.GameSound;
+
+    import data.GameSettingData;
+
     import feathers.controls.Button;
     import feathers.controls.Label;
     import feathers.controls.LayoutGroup;
@@ -24,6 +28,7 @@ package screens
     public class SettingScreen extends Screen
     {
 
+        public var settingData:GameSettingData;
 
         public function SettingScreen()
         {
@@ -59,9 +64,9 @@ package screens
 
             var controlGroup:LayoutGroup = new LayoutGroup();
             var controlLayout:VerticalLayout = new VerticalLayout();
-            controlLayout.gap = 10;
+            controlLayout.gap = 20;
             controlGroup.layout = controlLayout;
-            controlGroup.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN, 0, 0);
+            controlGroup.layoutData = new AnchorLayoutData(NaN, NaN, NaN, NaN,0, -20);
             addChild(controlGroup);
 
             var itemHLayout:HorizontalLayout = new HorizontalLayout();
@@ -71,6 +76,8 @@ package screens
             musicLabel.text = "音乐";
             musicGroup.layout = itemHLayout;
             var musicToggleButton:ToggleButton = new ToggleButton();
+            musicToggleButton.isSelected = !settingData.soundOn;
+            musicToggleButton.addEventListener(Event.CHANGE, musicToggleButton_changeHandler);
             musicGroup.addChild(musicLabel);
             musicGroup.addChild(musicToggleButton);
             controlGroup.addChild(musicGroup);
@@ -80,6 +87,8 @@ package screens
             effectLabel.text = "音效";
             effectGroup.layout = itemHLayout;
             var effectToggleButton:ToggleButton = new ToggleButton();
+            effectToggleButton.isSelected = !settingData.effectOn;
+            effectToggleButton.addEventListener(Event.CHANGE, effectToggleButton_changeHandler);
             effectGroup.addChild(effectLabel);
             effectGroup.addChild(effectToggleButton);
             controlGroup.addChild(effectGroup);
@@ -99,6 +108,24 @@ package screens
         private function button_triggeredHandler(event:Event):void
         {
             dispatchEventWith(Event.COMPLETE);
+        }
+
+        private function musicToggleButton_changeHandler(event:Event):void
+        {
+            settingData.soundOn = !(event.currentTarget as ToggleButton).isSelected;
+            if(settingData.soundOn)
+            {
+                GameSound.playBgSound();
+            }
+            else
+            {
+                GameSound.stopBgSound();
+            }
+        }
+
+        private function effectToggleButton_changeHandler(event:Event):void
+        {
+            settingData.effectOn = !(event.currentTarget as ToggleButton).isSelected;
         }
     }
 }

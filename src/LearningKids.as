@@ -1,9 +1,8 @@
 package
 {
 
-    import assets.Assets;
+    import assets.GameSound;
 
-    import feathers.controls.StackScreenNavigator;
     import feathers.utils.ScreenDensityScaleFactorManager;
 
     import flash.display.Loader;
@@ -22,7 +21,7 @@ package
 
     import starling.core.Starling;
 
-    [SWF(width="320", height="480", frameRate="60",backgroundColor="0x3d3d3d")]
+    [SWF(width="320", height="480", frameRate="60", backgroundColor="0x3d3d3d")]
     public class LearningKids extends Sprite
     {
         private var _starling:Starling;
@@ -140,7 +139,7 @@ package
             {
                 this._starling.addEventListener("rootCreated", starling_rootCreatedHandler);
             }
-            this._starling.showStats = true;
+            this._starling.showStatsAt("left", "bottom");
             this._scaler = new ScreenDensityScaleFactorManager(this._starling);
             this.stage.addEventListener(Event.DEACTIVATE, stage_deactivateHandler, false, 0, true);
         }
@@ -149,10 +148,10 @@ package
         {
             this._starling.stop(true);
 
-//            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
-//            {
-//                Assets.bgSound.stop();
-//            }
+            if (Capabilities.manufacturer.indexOf("Android") >= 0)
+            {
+                GameSound.stopBgSound();
+            }
             this.stage.addEventListener(Event.ACTIVATE, stage_activateHandler, false, 0, true);
         }
 
@@ -160,10 +159,19 @@ package
         {
             this.stage.removeEventListener(Event.ACTIVATE, stage_activateHandler);
             this._starling.start();
-//            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
-//            {
-//                Assets.bgSound = Assets.assetManager.playSound("bg");
-//            }
+            var currentScreenID:String = (this._starling.root as Main).activeScreenID;
+            if (Capabilities.manufacturer.indexOf("Android") >= 0)
+            {
+                if (currentScreenID != "gameScreen")
+                {
+                    GameSound.playBgSound();
+                }
+            }
+
+            //            if (!Assets.isBgSoundMute&&Capabilities.manufacturer.indexOf("Android") >= 0)
+            //            {
+            //                Assets.bgSound = Assets.assetManager.playSound("bg");
+            //            }
         }
     }
 }
