@@ -24,6 +24,10 @@ package screens
 
     import flash.geom.Rectangle;
 
+    import so.cuo.platform.admob.Admob;
+    import so.cuo.platform.admob.AdmobPosition;
+    import so.cuo.platform.admob.AdmobSize;
+
     import starling.animation.Juggler;
     import starling.animation.Tween;
     import starling.display.Image;
@@ -142,6 +146,8 @@ package screens
             var shareButton:Button=new Button();
             shareButton.styleNameList.add(GameTheme.SHARE_BUTTON_STYLE);
             bottomButtonGroup.addChild(shareButton);
+
+            
 
         }
 

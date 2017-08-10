@@ -8,11 +8,11 @@
 
      minimumPatchLevel - The minimum patch level of the AIR runtime required to run the application. Optional. -->
 
-<application xmlns="http://ns.adobe.com/air/application/22.0">
+<application xmlns="http://ns.adobe.com/air/application/26.0">
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>MainApp</id>
+    <id>com.wyj.funcards</id>
 
     <!-- Used as the filename for the application. Required. -->
     <filename>MainApp</filename>
@@ -41,9 +41,10 @@
     <!--<publisherID></publisherID>-->
 
     <!-- Identifies the ActionScript extensions used by an application. -->
-    <!--<extensions>
-        <extensionID></extensionID>
-    </extensions>-->
+    <extensions>
+        <extensionID>so.cuo.platform.admob</extensionID>
+
+    </extensions>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -116,7 +117,7 @@
     <!--<supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles>-->
 
     <!-- Languages supported by application. Only these languages can be specified -->
-    <!--<supportedLanguages>en de cs es fr it ja ko nl pl pt ru sv tr zh</supportedLanguages>-->
+    <!--<supportedLanguages>en zh</supportedLanguages>-->
 
     <!-- The subpath of the standard default installation location to use. Optional. -->
     <!--<installFolder></installFolder>-->
@@ -221,38 +222,22 @@
 
     <!-- Android specific tags that get passed to AndroidManifest.xml file. -->
     <android>
-        <manifestAdditions>
-            <![CDATA[
-            <manifest android:installLocation="auto">
-                <uses-permission android:name="android.permission.INTERNET"/>
-                <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
-                <!--<uses-permission android:name="android.permission.READ_PHONE_STATE"/>-->
-                <!--<uses-permission android:name="android.permission.VIBRATE"/>-->
-                <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
-                <!--<uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>-->
-                <!--<uses-permission android:name="android.permission.WAKE_LOCK"/>-->
-                <!--<uses-permission android:name="android.permission.CAMERA"/>-->
-                <!--<uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
-                <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-                <!--<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>-->
-
-                <!--<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>-->
-                <!--<application android:enabled="true">
-                    <activity android:excludeFromRecents="false">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN"/>
-                            <category android:name="android.intent.category.LAUNCHER"/>
-                        </intent-filter>
-                    </activity>
-                </application>-->
-            </manifest>
-            ]]>
-            </manifestAdditions>
-
-        <!-- Color depth for the app (either "32bit" or "16bit"). Optional. Default 16bit before namespace 3.0, 32bit after -->
-        <!--<colorDepth></colorDepth>-->
-        <!-- Indicates if the app contains video or not. Necessary for ordering of video planes with graphics plane, especially in Jellybean - if you app does video this must be set to true - valid values are true or false -->
-        <!-- <containsVideo></containsVideo> -->
+        <manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+			    <uses-permission android:name="android.permission.INTERNET"/>
+			    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+			     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+			     <application>
+ <meta-data android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
+			  	   <activity android:name="com.google.android.gms.ads.AdActivity"
+			  	   android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+			  	   android:theme="@android:style/Theme.Translucent"/>
+			     </application>
+			</manifest>
+		]]>
+        </manifestAdditions>
     </android>
 
 </application>

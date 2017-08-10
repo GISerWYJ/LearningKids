@@ -27,8 +27,14 @@ package screens
 
     import flash.filesystem.File;
 
+    import so.cuo.platform.admob.Admob;
+    import so.cuo.platform.admob.AdmobEvent;
+    import so.cuo.platform.admob.AdmobPosition;
+    import so.cuo.platform.admob.AdmobSize;
+
     import starling.display.Image;
     import starling.events.Event;
+    import starling.filters.DropShadowFilter;
     import starling.textures.Texture;
     import starling.utils.AssetManager;
 
@@ -89,6 +95,8 @@ package screens
             //3.enqueue the borders
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/borders.png"));
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/borders.xml"));
+
+           
             //2.load the queue.
             gameAssetManager.loadQueue(assetManager_onProgress);
 
@@ -135,6 +143,7 @@ package screens
                 imgLoader.height = 175;
                 imgLoader.maintainAspectRatio = false;
                 return imgLoader;
+
             };
 
 
@@ -188,12 +197,13 @@ package screens
             borderImage.x = (stage.width - borderImage.width) / 2;
             borderImage.y = (stage.height - borderImage.height) / 2;
             borderImage.touchable = false;
+            borderImage.filter = new DropShadowFilter();
             addChild(borderImage);
 
             //back to start Screen button
             var backButton:Button = new Button();
             backButton.styleNameList.add(GameTheme.BACK_BUTTON_STYLE);
-            backButton.layoutData = new AnchorLayoutData(10, NaN, NaN, 10);
+            backButton.layoutData = new AnchorLayoutData(70, NaN, NaN, 10);
             backButton.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
             addChild(backButton);
 
@@ -227,7 +237,16 @@ package screens
             itemNameButton.label = imgList.dataProvider.getItemAt(0).label;
             itemNameButton.addEventListener(Event.TRIGGERED, itemNameButton_triggeredHandler);
             addChildAt(itemNameButton, 0);
+
+            Admob.getInstance().showBanner(AdmobSize.SMART_BANNER, AdmobPosition.TOP_CENTER);
+            
+            
+            //Admob.getInstance().cacheInterstitial();
+
+
         }
+
+
 
 
         private function leftButton_triggeredHandler(event:Event):void
@@ -264,6 +283,20 @@ package screens
             dispatchEventWith(Event.COMPLETE);
             //离开游戏界面，恢复音乐
             GameSound.playBgSound();
+
+//            if (Admob.getInstance().isInterstitialReady())
+//            {
+//                Admob.getInstance().showInterstitial();
+//            }
+
+            if(Admob.getInstance().isVideoReady())
+            {
+                Admob.getInstance().showVideo();
+                //Admob.getInstance().cacheVideo("ca-app-pub-9744164684092475/5290065689");
+            }
+
+
+
         }
 
         private function itemNameButton_triggeredHandler(event:Event):void
@@ -275,5 +308,8 @@ package screens
             }
             borderImage.texture = gameAssetManager.getTexture("border" + borderIndex);
         }
+
+
+        
     }
 }

@@ -35,29 +35,29 @@ package themes
         /**
          * Constants
          */
-        public static var PRE_IMAGE_BUTTON_STYLE = "preImageButtonStyle";
+        public static var PRE_IMAGE_BUTTON_STYLE:String = "preImageButtonStyle";
 
-        public static var NEXT_IMAGE_BUTTON_STYLE = "nextImageButtonStyle";
+        public static var NEXT_IMAGE_BUTTON_STYLE:String = "nextImageButtonStyle";
 
-        public static var START_GAME_BUTTON_STYLE = "startGameButtonStyle";
+        public static var START_GAME_BUTTON_STYLE:String = "startGameButtonStyle";
 
-        public static var SETTING_BUTTON_STYLE = "settingButtonStyle";
+        public static var SETTING_BUTTON_STYLE:String = "settingButtonStyle";
 
-        public static var CATEGORY_BUTTON_STYLE = "categoryButtonStyle";
+        public static var CATEGORY_BUTTON_STYLE:String = "categoryButtonStyle";
 
-        public static var RATE_BUTTON_STYLE = "rateButtonStyle";
+        public static var RATE_BUTTON_STYLE:String = "rateButtonStyle";
 
-        public static var SHARE_BUTTON_STYLE = "shareButtonStyle";
+        public static var SHARE_BUTTON_STYLE:String = "shareButtonStyle";
 
-        public static var BACK_BUTTON_STYLE = "backButtonStyle";
+        public static var BACK_BUTTON_STYLE:String = "backButtonStyle";
 
-        public static var TOGGLE_BUTTON_STYLE = "toggleButtonStyle";
+        public static var TOGGLE_BUTTON_STYLE:String = "toggleButtonStyle";
 
-        public static var HOME_BUTTON_STYLE = "homeButtonStyle";
+        public static var HOME_BUTTON_STYLE:String = "homeButtonStyle";
 
-        public static var INGAME_SETTING_BUTTON_STYLE = "inGameSettingButtonStyle";
+        public static var INGAME_SETTING_BUTTON_STYLE:String = "inGameSettingButtonStyle";
 
-        public static var ITEM_NAME_BUTTON = "itemNameButtonStyle";
+        public static var ITEM_NAME_BUTTON:String = "itemNameButtonStyle";
 
 
 
@@ -147,6 +147,9 @@ package themes
             assets.enqueue(appDir.resolvePath("assets/textures/2x/progress_fill.png"));
 
             assets.enqueue(appDir.resolvePath("assets/images/border.png"));
+
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/category.png"));
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/category.xml"));
 
             //assets.enqueue(appDir.resolvePath("assets/images/about_bg.png"));
             //monitor the loading process

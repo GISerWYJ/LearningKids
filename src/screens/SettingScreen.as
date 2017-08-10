@@ -38,7 +38,6 @@ package screens
 
         override public function dispose():void
         {
-
             super.dispose();
         }
 
@@ -49,7 +48,6 @@ package screens
             this.layout = new AnchorLayout();
             //添加主页UI元素
             createUI();
-
         }
 
         private function createUI():void

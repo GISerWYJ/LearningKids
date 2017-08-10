@@ -17,10 +17,13 @@ package
     import feathers.motion.Fade;
     import feathers.motion.Reveal;
 
-    import screens.SettingScreen;
     import screens.GameScreen;
     import screens.HomeScreen;
+    import screens.SettingScreen;
     import screens.StartScreen;
+
+    import so.cuo.platform.admob.Admob;
+    import so.cuo.platform.admob.AdmobEvent;
 
     import starling.events.Event;
 
@@ -49,8 +52,6 @@ package
             super.initialize();
 
 
-
-            
             gameTheme = new GameTheme();
             gameTheme.addEventListener(Event.COMPLETE, gameTheme_completeHandler);
 
@@ -71,14 +72,14 @@ package
             var settingScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(SettingScreen);
             settingScreenItem.addPopEvent(Event.COMPLETE);
             settingScreenItem.properties.settingData = settings;
-            settingScreenItem.pushTransition =  Cover.createCoverUpTransition();
+            settingScreenItem.pushTransition = Cover.createCoverUpTransition();
             settingScreenItem.popTransition = Reveal.createRevealDownTransition();
             this.addScreen(SETTING_SCREEN, settingScreenItem);
             //开始界面
             var gameData:GameData = new GameData();
             var startScreenItem:StackScreenNavigatorItem = new StackScreenNavigatorItem(StartScreen);
-            startScreenItem.setScreenIDForPushEvent("game",GAME_SCREEN);
-            startScreenItem.setScreenIDForPushEvent("setting",SETTING_SCREEN);
+            startScreenItem.setScreenIDForPushEvent("game", GAME_SCREEN);
+            startScreenItem.setScreenIDForPushEvent("setting", SETTING_SCREEN);
             startScreenItem.addPopEvent(Event.COMPLETE);
             startScreenItem.properties.gameData = gameData;
             this.addScreen(START_SCREEN, startScreenItem);
@@ -98,10 +99,31 @@ package
         private function gameTheme_completeHandler(event:Event):void
         {
             createGameFramework();
+
+            //设置Admob的横幅广告ID、插屏广告的ID
+            Admob.getInstance().setKeys("ca-app-pub-9744164684092475/5863052740", "ca-app-pub-9744164684092475/1246634747");//"ca-app-pub-9744164684092475/1246634747"
+            //开始缓存插屏广告
+            Admob.getInstance().cacheVideo("ca-app-pub-9744164684092475/5290065689");
+            //Admob.getInstance().cacheInterstitial();
+            Admob.getInstance().addEventListener(AdmobEvent.onBannerReceive, onBannerReceiveHandler);
+            Admob.getInstance().addEventListener(AdmobEvent.onBannerFailedReceive, onBannerFailedReceiveHandler);
+            
             //play the bgSound
             GameSound.playBgSound();
         }
 
-        
+
+        private function onBannerReceiveHandler(event:AdmobEvent):void
+        {
+            trace("Ad recieved");
+            // Alert.show("ok");
+        }
+
+
+        private function onBannerFailedReceiveHandler(event:AdmobEvent):void
+        {
+            trace("Ad error occured");
+            //Alert.show(event.data.toString());
+        }
     }
 }

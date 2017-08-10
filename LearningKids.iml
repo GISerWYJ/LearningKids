@@ -11,8 +11,11 @@
             <entry library-id="3c2761f6-10cd-47af-a74d-4069701b2e38">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="732a2171-bb95-4196-8440-decbae9e7c11">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="AIRSDK_Compiler" />
+          <sdk name="AIRSDK_Compiler (1)" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
@@ -45,7 +48,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/images/launch-images/Default@2x.png" path-in-package="Default@2x.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="assets" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$MODULE_DIR$/../../ios_p12/ios.p12" provisioning-profile-path="$MODULE_DIR$/../../ios_p12/mobileprovision.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Desktop/cer/wyjcert.p12" provisioning-profile-path="$USER_HOME$/Desktop/cer/wyjappdev.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -56,7 +59,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_Compiler" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_Compiler (1)" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
@@ -73,6 +76,16 @@
         <properties id="3c2761f6-10cd-47af-a74d-4069701b2e38" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/../../framework/feathers-ui-3.3.0/source" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="732a2171-bb95-4196-8440-decbae9e7c11" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Anes/admob_ane_20170324/anes/admob_all_in_one.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
