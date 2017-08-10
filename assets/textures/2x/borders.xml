@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="borders.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="border0"	x="550"	y="871"	width="547"	height="417" frameX="-0" frameY="-0" frameWidth="547" frameHeight="417"/>
+	<SubTexture name="border1"	x="1098"	y="854"	width="547"	height="417" frameX="-0" frameY="-0" frameWidth="547" frameHeight="417"/>
+	<SubTexture name="border2"	x="0"	y="436"	width="564"	height="434" frameX="-0" frameY="-0" frameWidth="564" frameHeight="434"/>
+	<SubTexture name="border3"	x="1098"	y="1272"	width="545"	height="415" frameX="-0" frameY="-0" frameWidth="545" frameHeight="415"/>
+	<SubTexture name="border4"	x="0"	y="1291"	width="549"	height="425" frameX="-0" frameY="-0" frameWidth="549" frameHeight="425"/>
+	<SubTexture name="border5"	x="550"	y="1289"	width="547"	height="417" frameX="-0" frameY="-0" frameWidth="547" frameHeight="417"/>
+	<SubTexture name="border6"	x="0"	y="871"	width="549"	height="419" frameX="-0" frameY="-0" frameWidth="549" frameHeight="419"/>
+	<SubTexture name="border7"	x="0"	y="0"	width="565"	height="435" frameX="-0" frameY="-0" frameWidth="565" frameHeight="435"/>
+	<SubTexture name="border8"	x="566"	y="0"	width="547"	height="417" frameX="-0" frameY="-0" frameWidth="547" frameHeight="417"/>
+	<SubTexture name="border9"	x="565"	y="436"	width="547"	height="417" frameX="-0" frameY="-0" frameWidth="547" frameHeight="417"/>
+</TextureAtlas>

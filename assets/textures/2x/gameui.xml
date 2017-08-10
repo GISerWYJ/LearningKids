@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="gameui.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="back_button_down"	x="1546"	y="92"	width="86"	height="91" frameX="-0" frameY="-0" frameWidth="86" frameHeight="91"/>
+	<SubTexture name="back_button_normal"	x="1378"	y="405"	width="87"	height="91" frameX="-0" frameY="-0" frameWidth="87" frameHeight="91"/>
+	<SubTexture name="button_down"	x="1212"	y="0"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="button_normal"	x="1212"	y="270"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="category_button_normal"	x="1474"	y="405"	width="222"	height="208" frameX="-0" frameY="-0" frameWidth="222" frameHeight="208"/>
+	<SubTexture name="clouds"	x="641"	y="578"	width="498"	height="279" frameX="-0" frameY="-0" frameWidth="498" frameHeight="279"/>
+	<SubTexture name="game_setting_button_down"	x="1587"	y="614"	width="81"	height="86" frameX="-0" frameY="-0" frameWidth="81" frameHeight="86"/>
+	<SubTexture name="game_setting_button_normal"	x="1546"	y="276"	width="82"	height="86" frameX="-0" frameY="-0" frameWidth="82" frameHeight="86"/>
+	<SubTexture name="home_bg"	x="0"	y="0"	width="640"	height="960" frameX="-0" frameY="-0" frameWidth="640" frameHeight="960"/>
+	<SubTexture name="home_button_down"	x="1546"	y="0"	width="86"	height="91" frameX="-0" frameY="-0" frameWidth="86" frameHeight="91"/>
+	<SubTexture name="home_button_normal"	x="1546"	y="184"	width="86"	height="91" frameX="-0" frameY="-0" frameWidth="86" frameHeight="91"/>
+	<SubTexture name="logo"	x="641"	y="858"	width="359"	height="115" frameX="-2" frameY="-2" frameWidth="363" frameHeight="124"/>
+	<SubTexture name="next_button_down"	x="1448"	y="848"	width="112"	height="111" frameX="-0" frameY="-0" frameWidth="112" frameHeight="112"/>
+	<SubTexture name="next_button_normal"	x="1335"	y="848"	width="112"	height="111" frameX="-0" frameY="-0" frameWidth="112" frameHeight="112"/>
+	<SubTexture name="pre_button_down"	x="1474"	y="614"	width="112"	height="111" frameX="-0" frameY="-0" frameWidth="112" frameHeight="112"/>
+	<SubTexture name="pre_button_normal"	x="1474"	y="726"	width="112"	height="111" frameX="-0" frameY="-0" frameWidth="112" frameHeight="112"/>
+	<SubTexture name="rate_button_down"	x="1561"	y="924"	width="81"	height="85" frameX="-0" frameY="-0" frameWidth="81" frameHeight="85"/>
+	<SubTexture name="rate_button_normal"	x="1561"	y="838"	width="81"	height="85" frameX="-0" frameY="-0" frameWidth="81" frameHeight="85"/>
+	<SubTexture name="setting_bg"	x="641"	y="0"	width="570"	height="577" frameX="-0" frameY="-0" frameWidth="570" frameHeight="577"/>
+	<SubTexture name="setting_button_down"	x="1140"	y="713"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="setting_button_normal"	x="1212"	y="135"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="share_button_down"	x="1629"	y="276"	width="76"	height="81" frameX="-0" frameY="-0" frameWidth="76" frameHeight="81"/>
+	<SubTexture name="share_button_normal"	x="1587"	y="701"	width="76"	height="81" frameX="-0" frameY="-0" frameWidth="76" frameHeight="81"/>
+	<SubTexture name="start_button_down"	x="1140"	y="578"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="start_button_normal"	x="1001"	y="858"	width="333"	height="134" frameX="-0" frameY="-0" frameWidth="333" frameHeight="134"/>
+	<SubTexture name="text_container"	x="1212"	y="405"	width="165"	height="109" frameX="-2" frameY="-2" frameWidth="169" frameHeight="112"/>
+	<SubTexture name="toggle_button_off"	x="107"	y="961"	width="104"	height="59" frameX="-0" frameY="-0" frameWidth="104" frameHeight="59"/>
+	<SubTexture name="toggle_button_on"	x="0"	y="961"	width="106"	height="61" frameX="-0" frameY="-0" frameWidth="106" frameHeight="61"/>
+</TextureAtlas>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="category.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="animal"	x="0"	y="641"	width="288"	height="319" frameX="-3" frameY="-3" frameWidth="294" frameHeight="325"/>
+	<SubTexture name="building"	x="0"	y="321"	width="289"	height="319" frameX="-2" frameY="-3" frameWidth="294" frameHeight="325"/>
+	<SubTexture name="car"	x="0"	y="0"	width="289"	height="320" frameX="-2" frameY="-3" frameWidth="294" frameHeight="326"/>
+	<SubTexture name="fruite"	x="289"	y="641"	width="288"	height="319" frameX="-3" frameY="-3" frameWidth="294" frameHeight="326"/>
+</TextureAtlas>
