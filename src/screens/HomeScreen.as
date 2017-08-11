@@ -9,29 +9,21 @@ package screens
     import assets.GameSound;
 
     import feathers.controls.Button;
-    import feathers.controls.ButtonState;
-    import feathers.controls.Label;
     import feathers.controls.LayoutGroup;
     import feathers.controls.Screen;
     import feathers.controls.ToggleButton;
-    import feathers.controls.text.BitmapFontTextRenderer;
-    import feathers.core.ITextRenderer;
     import feathers.layout.AnchorLayout;
     import feathers.layout.AnchorLayoutData;
     import feathers.layout.HorizontalLayout;
     import feathers.layout.VerticalLayout;
     import feathers.skins.ImageSkin;
 
-    import flash.geom.Rectangle;
-
-    import so.cuo.platform.admob.Admob;
-    import so.cuo.platform.admob.AdmobPosition;
-    import so.cuo.platform.admob.AdmobSize;
-
     import starling.animation.Juggler;
     import starling.animation.Tween;
     import starling.display.Image;
+    import starling.display.MovieClip;
     import starling.events.Event;
+    import starling.textures.Texture;
 
     import themes.GameTheme;
 
@@ -41,8 +33,7 @@ package screens
         private var logo:Image;
         private var juggler:Juggler;
         private var clouds:Image;
-
-
+        private var walkerMovie:MovieClip;
 
         public function HomeScreen()
         {
@@ -142,12 +133,23 @@ package screens
             var rateButton:Button = new Button();
             rateButton.styleNameList.add(GameTheme.RATE_BUTTON_STYLE);
             bottomButtonGroup.addChild(rateButton);
+            rateButton.addEventListener(Event.TRIGGERED, rateButton_triggeredHandler);
 
-            var shareButton:Button=new Button();
+            var shareButton:Button = new Button();
             shareButton.styleNameList.add(GameTheme.SHARE_BUTTON_STYLE);
+            shareButton.addEventListener(Event.TRIGGERED, shareButton_triggeredHandler);
             bottomButtonGroup.addChild(shareButton);
 
-            
+
+            var walkerFrames:Vector.<Texture> = GameTheme.assets.getTextures("walker");
+            walkerMovie = new MovieClip(walkerFrames, 10);
+            walkerMovie.x = 50;
+            walkerMovie.y = 50;
+            walkerMovie.pivotX = walkerMovie.width/2;
+
+            addChild(walkerMovie);
+
+            juggler.add(walkerMovie);
 
         }
 
@@ -171,8 +173,6 @@ package screens
         }
 
 
-
-
         private function musicButton_changeHandler(event:Event):void
         {
             var musicButton:ToggleButton = event.currentTarget as ToggleButton;
@@ -190,5 +190,25 @@ package screens
                 //GameSound.isBgSoundMute = false;
             }
         }
+
+        private function rateButton_triggeredHandler(event:Event):void
+        {
+            walkerMovie.scaleX = -1;
+
+            if (walkerMovie.x > 0)
+            {
+                walkerMovie.x -= 10;
+            }
+        }
+
+        private function shareButton_triggeredHandler(event:Event):void
+        {
+            walkerMovie.scale = 1;
+            if (walkerMovie.x < stage.width)
+            {
+                walkerMovie.x +=10;
+            }
+        }
+
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="walker.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="walker0001.png"	x="0"	y="0"	width="92"	height="154" frameX="-4" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker00010.png"	x="176"	y="0"	width="66"	height="158" frameX="-16" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0002.png"	x="176"	y="0"	width="66"	height="158" frameX="-16" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0003.png"	x="302"	y="0"	width="46"	height="160" frameX="-29" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0004.png"	x="349"	y="0"	width="46"	height="159" frameX="-29" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0005.png"	x="243"	y="0"	width="58"	height="158" frameX="-17" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0006.png"	x="93"	y="0"	width="82"	height="153" frameX="-3" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0007.png"	x="243"	y="0"	width="58"	height="158" frameX="-17" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0008.png"	x="349"	y="0"	width="46"	height="159" frameX="-29" frameY="-0" frameWidth="97" frameHeight="169"/>
+	<SubTexture name="walker0009.png"	x="302"	y="0"	width="46"	height="160" frameX="-29" frameY="-0" frameWidth="97" frameHeight="169"/>
+</TextureAtlas>

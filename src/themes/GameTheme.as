@@ -151,6 +151,9 @@ package themes
             assets.enqueue(appDir.resolvePath("assets/textures/2x/category.png"));
             assets.enqueue(appDir.resolvePath("assets/textures/2x/category.xml"));
 
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/walker.png"));
+            assets.enqueue(appDir.resolvePath("assets/textures/2x/walker.xml"));
+
             //assets.enqueue(appDir.resolvePath("assets/images/about_bg.png"));
             //monitor the loading process
             assets.loadQueue(assetManager_onProgress);

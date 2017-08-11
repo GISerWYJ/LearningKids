@@ -13,9 +13,9 @@ package data
 
         public var effectOn:Boolean = true;
         
-        public function GameSettingData( )
+        public function GameSettingData()
         {
-
+            
         }
     }
 }
