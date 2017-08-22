@@ -14,6 +14,12 @@
             <entry library-id="732a2171-bb95-4196-8440-decbae9e7c11">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="a88ed10c-87a7-40ec-9c83-103b58158e9d">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="6b41372e-eb66-4af3-af1f-156f5823452c">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_Compiler (1)" />
         </dependencies>
@@ -86,6 +92,26 @@
         <properties id="732a2171-bb95-4196-8440-decbae9e7c11" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../Anes/admob_ane_20170324/anes/admob_all_in_one.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="a88ed10c-87a7-40ec-9c83-103b58158e9d" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Anes/ANE-ImagePicker-master/ANE-ImagePicker-master/bin/AirImagePicker.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="6b41372e-eb66-4af3-af1f-156f5823452c" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../Anes/qreader.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

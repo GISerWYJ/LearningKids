@@ -43,7 +43,8 @@
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>
         <extensionID>so.cuo.platform.admob</extensionID>
-
+        <extensionID>com.freshplanet.ane.AirImagePicker</extensionID>
+        <extensionID>com.sbhave.nativeExtensions.zbar</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->

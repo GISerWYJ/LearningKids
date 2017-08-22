@@ -96,6 +96,7 @@ package screens
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/borders.png"));
             gameAssetManager.enqueue(appDir.resolvePath("assets/textures/2x/borders.xml"));
 
+            gameAssetManager.enqueue(File.applicationStorageDirectory.resolvePath("a_test.png"));
            
             //2.load the queue.
             gameAssetManager.loadQueue(assetManager_onProgress);
